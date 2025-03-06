@@ -42,7 +42,7 @@ cmd = "rattler-build build --recipe-dir conda.recipe --output-dir /tmp/conda-bui
 cmd = "conda-smithy rerender"
 
 [tasks.conda-upload]
-cmd = "anaconda upload /tmp/conda-build/linux-64/fstd2nc-*.conda -u fortiers"
+cmd = "rattler-build upload anaconda -v -o fortiers /tmp/conda-build/linux-64/fstd2nc-*.conda"
 depends-on = ["conda-build"]
 
 [dependencies]
@@ -59,7 +59,6 @@ toolz = "*"
 xarray = ">=0.10.3"
 
 [feature.dev.dependencies]
-anaconda-client = "*"
 ipython = "==8.14.0"
 myst-parser = "==1.0.0"
 nbsphinx = "==0.9.2"
